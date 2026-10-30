@@ -163,6 +163,10 @@ final class PDF_Embed_Forge {
 			<div class="pdf-embed-forge__frame-wrap" style="height:<?php echo esc_attr( $height ); ?>">
 				<iframe class="pdf-embed-forge__frame" src="<?php echo esc_url( $src ); ?>" title="<?php echo esc_attr( $title ); ?>" loading="lazy"></iframe>
 			</div>
+			<a class="pdf-embed-forge__open" href="<?php echo esc_url( $url ); ?>" target="_blank" rel="noopener">
+				<svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#e23b4e" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="16" x2="13" y2="16"/></svg>
+				<span class="pdf-embed-forge__open-label"><?php echo esc_html( $title ); ?><small><?php esc_html_e( 'Tap to view the PDF full screen', 'pdf-embed-forge' ); ?></small></span>
+			</a>
 		</div>
 		<?php
 		return ob_get_clean();
