@@ -5,7 +5,7 @@ Tags: pdf, embed, pdf viewer, document, shortcode
 Requires at least: 6.0
 Tested up to: 7.1
 Requires PHP: 7.4
-Stable tag: 1.0.3
+Stable tag: 1.0.4
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -88,7 +88,7 @@ The older `[pdf-forge]` shortcode still works as an alias, so anything you built
 
 = Does it work on mobile? =
 
-Yes. On phones, where inline PDF frames are cramped (and unreliable in iOS Safari), the embed shows a tap-to-open card that opens the PDF in the device's full-screen viewer. The inline viewer is used on larger screens.
+Yes. On phones, where inline PDF frames are cramped (and unreliable in iOS Safari), the embed shows the PDF's first page with a "View in Full Screen" button that opens it in the device's full-screen viewer. The first-page image is the one WordPress generates on upload; if your host can't make it, a document icon is shown instead. The inline viewer is used on larger screens.
 
 = Can I hide the toolbar or the pages sidebar? =
 
@@ -113,6 +113,9 @@ No. Everything is configured per embed, on the block or the shortcode.
 
 == Changelog ==
 
+= 1.0.4 =
+* Mobile card now shows the PDF's first page (from the preview WordPress generates on upload) with a "View in Full Screen" button, falling back to a document icon when no preview exists.
+
 = 1.0.3 =
 * Mobile: phones now show a tap-to-open card that opens the PDF full screen, instead of a cramped inline frame. Desktop keeps the inline viewer.
 
@@ -131,6 +134,9 @@ No. Everything is configured per embed, on the block or the shortcode.
 * Initial release: block and shortcode with height and toolbar controls.
 
 == Upgrade Notice ==
+
+= 1.0.4 =
+Mobile now shows a first-page preview with a View in Full Screen button.
 
 = 1.0.3 =
 Better mobile experience: a tap-to-open card on phones.

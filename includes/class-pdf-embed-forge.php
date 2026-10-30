@@ -157,6 +157,19 @@ final class PDF_Embed_Forge {
 			$wrap_class .= ' ' . $extra_class;
 		}
 
+		// First-page preview for the mobile card. WordPress generates this on upload
+		// when the host has Imagick + Ghostscript; otherwise we fall back to an icon.
+		$thumb = $a['id'] ? wp_get_attachment_image(
+			(int) $a['id'],
+			'large',
+			false,
+			array(
+				'class'   => 'pdf-embed-forge__thumb',
+				'alt'     => '',
+				'loading' => 'lazy',
+			)
+		) : '';
+
 		ob_start();
 		?>
 		<div class="<?php echo esc_attr( $wrap_class ); ?>">
@@ -164,8 +177,24 @@ final class PDF_Embed_Forge {
 				<iframe class="pdf-embed-forge__frame" src="<?php echo esc_url( $src ); ?>" title="<?php echo esc_attr( $title ); ?>" loading="lazy"></iframe>
 			</div>
 			<a class="pdf-embed-forge__open" href="<?php echo esc_url( $url ); ?>" target="_blank" rel="noopener">
-				<svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#e23b4e" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="16" x2="13" y2="16"/></svg>
-				<span class="pdf-embed-forge__open-label"><?php echo esc_html( $title ); ?><small><?php esc_html_e( 'Tap to view the PDF full screen', 'pdf-embed-forge' ); ?></small></span>
+				<span class="pdf-embed-forge__preview">
+					<?php
+					if ( $thumb ) {
+						echo $thumb; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- wp_get_attachment_image() returns safe markup.
+					} else {
+						?>
+						<span class="pdf-embed-forge__preview-fallback">
+							<svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="#e23b4e" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="16" x2="13" y2="16"/></svg>
+						</span>
+						<?php
+					}
+					?>
+					<span class="pdf-embed-forge__cta">
+						<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M8 3H5a2 2 0 0 0-2 2v3M21 8V5a2 2 0 0 0-2-2h-3M3 16v3a2 2 0 0 0 2 2h3M16 21h3a2 2 0 0 0 2-2v-3"/></svg>
+						<?php esc_html_e( 'View in Full Screen', 'pdf-embed-forge' ); ?>
+					</span>
+				</span>
+				<span class="pdf-embed-forge__open-title"><?php echo esc_html( $title ); ?></span>
 			</a>
 		</div>
 		<?php
