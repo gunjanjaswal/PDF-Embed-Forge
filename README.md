@@ -6,7 +6,7 @@
 
 A lightweight PDF embed plugin with a Gutenberg block **and** a shortcode. It uses the browser's own PDF viewer, so there's no bulky library to load and nothing ever leaves your server.
 
-[![Version](https://img.shields.io/badge/version-1.0.4-2563eb.svg?style=for-the-badge)](https://github.com/gunjanjaswal/PDF-Embed-Forge/releases)
+[![Version](https://img.shields.io/badge/version-1.0.5-2563eb.svg?style=for-the-badge)](https://github.com/gunjanjaswal/PDF-Embed-Forge/releases)
 [![WordPress](https://img.shields.io/badge/WordPress-6.0%E2%80%937.1-21759b.svg?style=for-the-badge&logo=wordpress&logoColor=white)](https://wordpress.org/)
 [![PHP](https://img.shields.io/badge/PHP-7.4%2B-777bb4.svg?style=for-the-badge&logo=php&logoColor=white)](https://www.php.net/)
 [![License](https://img.shields.io/badge/license-GPL--2.0%2B-3fb950.svg?style=for-the-badge)](LICENSE)
@@ -104,7 +104,7 @@ Open **Media → Library**, click the PDF, and read the `item=` number in the ad
 ## ❓ FAQ
 
 **Does it work on mobile?**
-Yes. On phones, where inline PDF frames are cramped (and unreliable in iOS Safari), the embed shows the PDF's first page with a "View in Full Screen" button that opens it in the device's native viewer. The preview image is the one WordPress generates on upload; where the host can't make one, a document icon is shown instead. Larger screens get the inline viewer.
+Yes. On phones, where inline PDF frames are cramped (and unreliable in iOS Safari), the embed shows the PDF's first page with a "View full screen" button that opens it in the device's native viewer. The preview image is the one WordPress generates on upload; where the host can't make one, a document icon is shown instead. Larger screens get the inline viewer.
 
 **Can I hide the toolbar or the pages sidebar?**
 The thumbnail sidebar is hidden automatically. To hide the toolbar too, set `toolbar="0"` or flip the toggle in the block sidebar. Chromium-based browsers honour it; others show their own controls.

@@ -191,7 +191,7 @@ final class PDF_Embed_Forge {
 					?>
 					<span class="pdf-embed-forge__cta">
 						<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M8 3H5a2 2 0 0 0-2 2v3M21 8V5a2 2 0 0 0-2-2h-3M3 16v3a2 2 0 0 0 2 2h3M16 21h3a2 2 0 0 0 2-2v-3"/></svg>
-						<?php esc_html_e( 'View in Full Screen', 'pdf-embed-forge' ); ?>
+						<?php esc_html_e( 'View full screen', 'pdf-embed-forge' ); ?>
 					</span>
 				</span>
 				<span class="pdf-embed-forge__open-title"><?php echo esc_html( $title ); ?></span>

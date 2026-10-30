@@ -75,6 +75,7 @@
 		padding: 12px 20px;
 		font-size: 15px;
 		font-weight: 600;
+		white-space: nowrap;
 		color: #fff;
 		background: rgba(17, 18, 22, 0.86);
 		border-radius: 999px;

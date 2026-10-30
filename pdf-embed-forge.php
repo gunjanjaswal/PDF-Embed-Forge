@@ -3,7 +3,7 @@
  * Plugin Name:       PDF Embed Forge
  * Plugin URI:        https://github.com/gunjanjaswal/PDF-Embed-Forge
  * Description:       Embed PDF files directly on your site with a block or a shortcode. A clean, responsive, full-width inline viewer. No external services.
- * Version:           1.0.4
+ * Version:           1.0.5
  * Requires at least: 6.0
  * Requires PHP:      7.4
  * Author:            Gunjan Jaswal
@@ -20,7 +20,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'PDF_EMBED_FORGE_VERSION', '1.0.4' );
+define( 'PDF_EMBED_FORGE_VERSION', '1.0.5' );
 define( 'PDF_EMBED_FORGE_FILE', __FILE__ );
 define( 'PDF_EMBED_FORGE_DIR', plugin_dir_path( __FILE__ ) );
 define( 'PDF_EMBED_FORGE_URL', plugin_dir_url( __FILE__ ) );
