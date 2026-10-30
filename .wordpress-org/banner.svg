@@ -37,7 +37,7 @@
   <text x="120" y="292" font-family="'Helvetica Neue','Arial',sans-serif" font-weight="600" font-size="37" fill="#c7cfe2">Embed PDFs directly in your posts and pages.</text>
 
   <!-- Feature line -->
-  <text x="120" y="352" font-family="'Helvetica Neue','Arial',sans-serif" font-weight="500" font-size="27" fill="#8b93ad">Block &amp; shortcode  &#183;  fits full width  &#183;  no external services</text>
+  <text x="120" y="352" font-family="'Helvetica Neue','Arial',sans-serif" font-weight="500" font-size="27" fill="#8b93ad">Block &amp; shortcode        &#183;        no external services</text>
 
   <!-- App icon -->
   <g transform="translate(1150 98) scale(1.1875)">
