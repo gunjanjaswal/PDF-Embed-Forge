@@ -1,25 +1,26 @@
-=== PDF Forge ===
+=== PDF Embed Forge ===
 Contributors: gunjanjaswal
+Donate link: https://ko-fi.com/gunjanjaswal
 Tags: pdf, embed, pdf viewer, document, shortcode
 Requires at least: 6.0
 Tested up to: 7.1
 Requires PHP: 7.4
-Stable tag: 1.0.1
+Stable tag: 1.0.2
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
-Embed a PDF right inside a post or page with a clean, responsive viewer. Add it with a block or a shortcode. No third-party services.
+Embed a PDF right inside a post or page with a clean, responsive, full-width viewer. Add it with a block or a shortcode. No third-party services.
 
 == Description ==
 
-PDF Forge drops a PDF straight into your content so readers can scroll through it without leaving the page. Pick a file from your Media Library (or paste a URL), choose a height, and you are done.
+PDF Embed Forge drops a PDF straight into your content so readers can scroll through it without leaving the page. Pick a file from your Media Library (or paste a URL), choose a height, and you are done.
 
-It uses the browser's own PDF viewer, so there is no heavy library to load and nothing is sent to an outside service. Your files stay on your site.
+It uses the browser's own PDF viewer, so there is no heavy library to load and nothing is sent to an outside service. Your files stay on your own site.
 
 **What you get**
 
-* A "PDF Forge" block for the editor with a live preview while you set it up.
-* A `[pdf-forge]` shortcode for the classic editor, widgets, or anywhere shortcodes run.
+* A "PDF Embed Forge" block for the editor, with a live preview while you set it up.
+* A `[pdf-embed-forge]` shortcode for the classic editor, widgets, or anywhere shortcodes run.
 * Control over the viewer height and the built-in toolbar.
 * Fits the page to the viewer width and hides the thumbnail sidebar for a clean, full-width read.
 * Responsive by default, so it fits phones as well as wide desktop layouts.
@@ -27,27 +28,53 @@ It uses the browser's own PDF viewer, so there is no heavy library to load and n
 
 == Installation ==
 
-1. Upload the `pdf-forge` folder to `/wp-content/plugins/`, or install it from the Plugins screen.
-2. Activate it through the **Plugins** menu in WordPress.
-3. In the editor, add the **PDF Forge** block and choose a PDF, or drop the shortcode into your content.
+**From your dashboard**
 
-== Usage ==
+1. Go to **Plugins → Add New → Upload Plugin**.
+2. Choose `pdf-embed-forge.zip` and click **Install Now**.
+3. Click **Activate**.
 
-**Block**
+**Manually over FTP/SFTP**
 
-Add the **PDF Forge** block, upload or select a PDF, then adjust the height and toolbar in the sidebar.
+1. Unzip the download and upload the `pdf-embed-forge` folder to `/wp-content/plugins/`.
+2. Go to **Plugins** in WordPress and activate **PDF Embed Forge**.
 
-**Shortcode**
+There is no settings page. Once it is active you can add PDFs straight away.
 
-Embed by attachment ID:
+== How to use ==
 
-`[pdf-forge id="123"]`
+**Embed a PDF with the block**
 
-Or by URL, with a custom height and no toolbar:
+1. Edit a post or page.
+2. Click the **+** (block inserter) and search for **PDF Embed Forge**.
+3. Add the block, then click **Upload** or **Media Library** and pick your PDF.
+4. In the block sidebar, set the **viewer height**, show or hide the **toolbar**, and type an **accessible title** if you like.
+5. Use the toolbar's **Replace PDF** button any time you want to swap the file.
+6. Publish. The PDF shows up inline, fitted to the width of your content.
 
-`[pdf-forge url="https://example.com/files/report.pdf" height="800" toolbar="0"]`
+Tip: to run the viewer edge to edge, select the block and choose **Wide width** or **Full width** from the block toolbar.
 
-Attributes:
+**Embed a PDF with the shortcode**
+
+Use the shortcode when you are in the classic editor, a widget, or a template file.
+
+Embed a file from your Media Library by its attachment ID:
+
+`[pdf-embed-forge id="123"]`
+
+Embed any PDF by its URL, taller and with the toolbar hidden:
+
+`[pdf-embed-forge url="https://example.com/files/report.pdf" height="800" toolbar="0"]`
+
+Call it from a template with `do_shortcode()`:
+
+`<?php echo do_shortcode( '[pdf-embed-forge id="123"]' ); ?>`
+
+**Finding a PDF's attachment ID**
+
+Open **Media → Library**, click the PDF, and read the `item=` number in the URL, or copy the file URL and use it with the `url` attribute instead.
+
+**Shortcode attributes**
 
 * `id` — Media Library attachment ID of the PDF.
 * `url` — Direct URL to a PDF (used if no `id` is given).
@@ -55,21 +82,42 @@ Attributes:
 * `toolbar` — `1` to show the viewer toolbar, `0` to hide it. Default `1`.
 * `title` — Accessible title for the viewer (read by screen readers).
 
+The older `[pdf-forge]` shortcode still works as an alias, so anything you built before the rename keeps running.
+
 == Frequently Asked Questions ==
 
 = Does it work on mobile? =
 
 Yes. The viewer is responsive and uses the device browser's own PDF support, so it reads well from phones up to wide desktop layouts.
 
-= Can I hide the toolbar? =
+= Can I hide the toolbar or the pages sidebar? =
 
-Yes, set `toolbar="0"` on the shortcode or flip the toggle in the block sidebar. Hiding the toolbar is honoured by Chromium-based browsers; others simply ignore it.
+The thumbnail sidebar is hidden automatically for a clean read. To hide the toolbar as well, set `toolbar="0"` on the shortcode or flip the toggle in the block sidebar. These are honoured by Chromium-based browsers; others simply show their own controls.
+
+= Can I embed a PDF hosted on another site? =
+
+Yes, pass its full URL to the `url` attribute. Note that some hosts block being shown inside a frame, which is their setting rather than something the plugin controls.
 
 = Does it send my PDFs anywhere? =
 
-No. It points the browser at your own file. Nothing is uploaded to or proxied through any external service.
+No. The browser loads the file straight from your site. Nothing is uploaded to or proxied through any external service.
+
+= Is there a settings page? =
+
+No. Everything is configured per embed, on the block or the shortcode.
+
+== Screenshots ==
+
+1. A PDF embedded inline in a post, fitted to the content width.
+2. The block sidebar with height, toolbar, and accessible-title controls.
 
 == Changelog ==
+
+= 1.0.2 =
+* Renamed the plugin to PDF Embed Forge, with the `[pdf-embed-forge]` shortcode (the old `[pdf-forge]` shortcode still works).
+* Wide and Full width block alignment now break the viewer out of the content column.
+* Expanded the how-to documentation.
+* Added a `languages` folder with a translation template.
 
 = 1.0.1 =
 * The viewer now fits the page to its width and hides the thumbnail sidebar for a clean, full-width read.
@@ -77,9 +125,12 @@ No. It points the browser at your own file. Nothing is uploaded to or proxied th
 * Removed the separate download link; the viewer's own toolbar already offers downloads.
 
 = 1.0.0 =
-* Initial release: PDF Forge block and `[pdf-forge]` shortcode with height and toolbar controls.
+* Initial release: block and shortcode with height and toolbar controls.
 
 == Upgrade Notice ==
+
+= 1.0.2 =
+Renamed to PDF Embed Forge. Your existing embeds keep working.
 
 = 1.0.1 =
 Cleaner full-width viewer with the thumbnail sidebar hidden.

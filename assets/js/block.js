@@ -1,5 +1,5 @@
 /**
- * PDF Forge block editor.
+ * PDF Embed Forge block editor.
  *
  * Dynamic block (rendered in PHP), authored without a build step using
  * wp.element.createElement so it runs straight from source.
@@ -25,7 +25,7 @@
 	var ToolbarGroup = cmp.ToolbarGroup;
 	var ToolbarButton = cmp.ToolbarButton;
 
-	blocks.registerBlockType( 'pdf-forge/embed', {
+	blocks.registerBlockType( 'pdf-embed-forge/embed', {
 		edit: function ( props ) {
 			var a = props.attributes;
 			var setA = props.setAttributes;
@@ -44,9 +44,9 @@
 				{},
 				el(
 					PanelBody,
-					{ title: __( 'PDF settings', 'pdf-forge' ), initialOpen: true },
+					{ title: __( 'PDF settings', 'pdf-embed-forge' ), initialOpen: true },
 					el( RangeControl, {
-						label: __( 'Viewer height (px)', 'pdf-forge' ),
+						label: __( 'Viewer height (px)', 'pdf-embed-forge' ),
 						value: a.height,
 						min: 200,
 						max: 1500,
@@ -56,15 +56,15 @@
 						}
 					} ),
 					el( ToggleControl, {
-						label: __( 'Show PDF toolbar', 'pdf-forge' ),
+						label: __( 'Show PDF toolbar', 'pdf-embed-forge' ),
 						checked: a.toolbar,
 						onChange: function ( v ) {
 							setA( { toolbar: v } );
 						}
 					} ),
 					el( TextControl, {
-						label: __( 'Accessible title', 'pdf-forge' ),
-						help: __( 'Describes the PDF for screen readers.', 'pdf-forge' ),
+						label: __( 'Accessible title', 'pdf-embed-forge' ),
+						help: __( 'Describes the PDF for screen readers.', 'pdf-embed-forge' ),
 						value: a.title,
 						onChange: function ( v ) {
 							setA( { title: v } );
@@ -81,8 +81,8 @@
 					el( MediaPlaceholder, {
 						icon: 'media-document',
 						labels: {
-							title: __( 'PDF Forge', 'pdf-forge' ),
-							instructions: __( 'Upload a PDF or choose one from your Media Library.', 'pdf-forge' )
+							title: __( 'PDF Embed Forge', 'pdf-embed-forge' ),
+							instructions: __( 'Upload a PDF or choose one from your Media Library.', 'pdf-embed-forge' )
 						},
 						accept: 'application/pdf',
 						allowedTypes: [ 'application/pdf' ],
@@ -108,7 +108,7 @@
 								return el(
 									ToolbarButton,
 									{ onClick: o.open },
-									__( 'Replace PDF', 'pdf-forge' )
+									__( 'Replace PDF', 'pdf-embed-forge' )
 								);
 							}
 						} )
@@ -122,9 +122,9 @@
 				inspector,
 				controls,
 				el( 'iframe', {
-					className: 'pdf-forge__frame',
+					className: 'pdf-embed-forge__frame',
 					src: a.url,
-					title: a.title || __( 'Embedded PDF', 'pdf-forge' ),
+					title: a.title || __( 'Embedded PDF', 'pdf-embed-forge' ),
 					style: {
 						width: '100%',
 						height: ( a.height || 600 ) + 'px',
